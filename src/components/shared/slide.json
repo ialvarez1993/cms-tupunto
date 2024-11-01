@@ -1,23 +1,29 @@
 {
-  "collectionName": "components_shared_ctas",
+  "collectionName": "components_shared_slides",
   "info": {
-    "displayName": "CTA",
-    "icon": "apps",
+    "displayName": "slide",
+    "icon": "landscape",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "url": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
       "type": "string"
     },
     "media": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images",
         "files"
       ]
+    },
+    "url": {
+      "type": "string"
     },
     "call": {
       "type": "string"

@@ -401,6 +401,7 @@ export interface ApiAdvertisementAdvertisement
 export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   collectionName: 'banners';
   info: {
+    description: '';
     displayName: 'Banner';
     pluralName: 'banners';
     singularName: 'banner';
@@ -418,14 +419,11 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
       'api::banner.banner'
     > &
       Schema.Attribute.Private;
-    media: Schema.Attribute.Media<'images' | 'files', true>;
     publishedAt: Schema.Attribute.DateTime;
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    slide: Schema.Attribute.Component<'shared.slide', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
   };
 }
 
