@@ -1,7 +1,20 @@
 import type { StrapiApp } from "@strapi/strapi/admin";
+import AuthLogo from "../extensions/favicon.png";
 
 export default {
   config: {
+    // Disable video tutorials
+    tutorials: false,
+    // Disable notifications about new Strapi releases
+    notifications: { releases: false },
+    auth: {
+      // Replace the Strapi logo in auth (login) views
+      logo: AuthLogo,
+    },
+    menu: {
+      // Replace the Strapi logo in the main navigation
+      logo: AuthLogo,
+    },
     theme: {
       light: {
         colors: {
@@ -12,7 +25,11 @@ export default {
       },
       dark: {
         colors: {
+          primary100: "black",
           primary600: "orange",
+          primary700: "orange",
+          neutral0: "black",
+          neutral100: "#1f1f1f",
           buttonPrimary500: "orange",
           buttonPrimary600: "orange",
         },
