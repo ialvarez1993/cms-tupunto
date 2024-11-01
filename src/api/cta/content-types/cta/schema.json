@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ctas",
+  "info": {
+    "singularName": "cta",
+    "pluralName": "ctas",
+    "displayName": "CTA",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "CTA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.cta"
+    }
+  }
+}
