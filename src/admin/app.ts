@@ -26,10 +26,15 @@ export default {
       dark: {
         colors: {
           primary100: "black",
+          primary200: "grey",
           primary600: "orange",
           primary700: "orange",
           neutral0: "black",
           neutral100: "#1f1f1f",
+          neutral200: "grey",
+          neutral150: "black",
+          neutral400: "#FFF",
+          neutral600: "#FFF",
           buttonPrimary500: "orange",
           buttonPrimary600: "orange",
         },
