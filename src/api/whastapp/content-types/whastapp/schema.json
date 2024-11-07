@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "whastapps",
+  "info": {
+    "singularName": "whastapp",
+    "pluralName": "whastapps",
+    "displayName": "Whastapp"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
