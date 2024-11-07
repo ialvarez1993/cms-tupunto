@@ -373,7 +373,8 @@ export interface ApiAdvertisementAdvertisement
   extends Struct.CollectionTypeSchema {
   collectionName: 'advertisements';
   info: {
-    displayName: 'Advertisement';
+    description: '';
+    displayName: 'Publicidad';
     pluralName: 'advertisements';
     singularName: 'advertisement';
   };
@@ -392,6 +393,52 @@ export interface ApiAdvertisementAdvertisement
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAvisoDePrivacidadAvisoDePrivacidad
+  extends Struct.SingleTypeSchema {
+  collectionName: 'avisos_de_privacidad';
+  info: {
+    displayName: 'Aviso de privacidad';
+    pluralName: 'avisos-de-privacidad';
+    singularName: 'aviso-de-privacidad';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::aviso-de-privacidad.aviso-de-privacidad'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -427,11 +474,58 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCambioYDevolucionCambioYDevolucion
+  extends Struct.SingleTypeSchema {
+  collectionName: 'cambios_y_devoluciones';
+  info: {
+    description: '';
+    displayName: 'Cambios y devoluciones';
+    pluralName: 'cambios-y-devoluciones';
+    singularName: 'cambio-y-devolucion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cambio-y-devolucion.cambio-y-devolucion'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
     description: '';
-    displayName: 'Category';
+    displayName: 'Categoria';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -461,7 +555,7 @@ export interface ApiCtaCta extends Struct.CollectionTypeSchema {
   collectionName: 'ctas';
   info: {
     description: '';
-    displayName: 'CTA';
+    displayName: 'Llamado a la accion';
     pluralName: 'ctas';
     singularName: 'cta';
   };
@@ -485,12 +579,13 @@ export interface ApiCtaCta extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiDeliveryPageDeliveryPage extends Struct.SingleTypeSchema {
-  collectionName: 'delivery_pages';
+export interface ApiInformacionDeEnvioInformacionDeEnvio
+  extends Struct.SingleTypeSchema {
+  collectionName: 'informacion_de_envios';
   info: {
-    displayName: 'Delivery page';
-    pluralName: 'delivery-pages';
-    singularName: 'delivery-page';
+    displayName: 'Informacion de envios';
+    pluralName: 'informacion-de-envios';
+    singularName: 'informacion-de-envio';
   };
   options: {
     draftAndPublish: true;
@@ -501,7 +596,7 @@ export interface ApiDeliveryPageDeliveryPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    Body: Schema.Attribute.RichText &
+    content: Schema.Attribute.Blocks &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -514,10 +609,11 @@ export interface ApiDeliveryPageDeliveryPage extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::delivery-page.delivery-page'
+      'api::informacion-de-envio.informacion-de-envio'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String &
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -529,12 +625,13 @@ export interface ApiDeliveryPageDeliveryPage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiFaqFaq extends Struct.SingleTypeSchema {
-  collectionName: 'faqs';
+export interface ApiInformacionDePagoInformacionDePago
+  extends Struct.SingleTypeSchema {
+  collectionName: 'informacion_de_pagos';
   info: {
-    displayName: 'faq';
-    pluralName: 'faqs';
-    singularName: 'faq';
+    displayName: 'Informacion de pagos';
+    pluralName: 'informacion-de-pagos';
+    singularName: 'informacion-de-pago';
   };
   options: {
     draftAndPublish: true;
@@ -545,7 +642,7 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    Body: Schema.Attribute.RichText &
+    content: Schema.Attribute.Blocks &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -555,9 +652,13 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::informacion-de-pago.informacion-de-pago'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String &
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -569,133 +670,60 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiPaymentsPagePaymentsPage extends Struct.SingleTypeSchema {
-  collectionName: 'payments_pages';
+export interface ApiLogotipoLogotipo extends Struct.SingleTypeSchema {
+  collectionName: 'logotipos';
+  info: {
+    displayName: 'Logotipo';
+    pluralName: 'logotipos';
+    singularName: 'logotipo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::logotipo.logotipo'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPreguntaFrecuentePreguntaFrecuente
+  extends Struct.SingleTypeSchema {
+  collectionName: 'preguntas_frecuentes';
   info: {
     description: '';
-    displayName: 'Payments page';
-    pluralName: 'payments-pages';
-    singularName: 'payments-page';
+    displayName: 'Preguntas Frecuentes';
+    pluralName: 'preguntas-frecuentes';
+    singularName: 'pregunta-frecuente';
   };
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    Body: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::payments-page.payments-page'
-    >;
+      'api::pregunta-frecuente.pregunta-frecuente'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPolicyPagePolicyPage extends Struct.SingleTypeSchema {
-  collectionName: 'policy_pages';
-  info: {
-    description: '';
-    displayName: 'Policy page';
-    pluralName: 'policy-pages';
-    singularName: 'policy-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Body: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::policy-page.policy-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPrivacyPagePrivacyPage extends Struct.SingleTypeSchema {
-  collectionName: 'privacy_pages';
-  info: {
-    displayName: 'Privacy page';
-    pluralName: 'privacy-pages';
-    singularName: 'privacy-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Body: Schema.Attribute.RichText &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::privacy-page.privacy-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -706,7 +734,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
     description: '';
-    displayName: 'Product';
+    displayName: 'Producto';
     pluralName: 'products';
     singularName: 'product';
   };
@@ -729,6 +757,80 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     sku: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTerminoYCondicionTerminoYCondicion
+  extends Struct.SingleTypeSchema {
+  collectionName: 'terminos_y_condiciones';
+  info: {
+    displayName: 'Terminos y condiciones';
+    pluralName: 'terminos-y-condiciones';
+    singularName: 'termino-y-condicion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::termino-y-condicion.termino-y-condicion'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWhastappWhastapp extends Struct.SingleTypeSchema {
+  collectionName: 'whastapps';
+  info: {
+    displayName: 'Whastapp';
+    pluralName: 'whastapps';
+    singularName: 'whastapp';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::whastapp.whastapp'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1241,15 +1343,18 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::advertisement.advertisement': ApiAdvertisementAdvertisement;
+      'api::aviso-de-privacidad.aviso-de-privacidad': ApiAvisoDePrivacidadAvisoDePrivacidad;
       'api::banner.banner': ApiBannerBanner;
+      'api::cambio-y-devolucion.cambio-y-devolucion': ApiCambioYDevolucionCambioYDevolucion;
       'api::category.category': ApiCategoryCategory;
       'api::cta.cta': ApiCtaCta;
-      'api::delivery-page.delivery-page': ApiDeliveryPageDeliveryPage;
-      'api::faq.faq': ApiFaqFaq;
-      'api::payments-page.payments-page': ApiPaymentsPagePaymentsPage;
-      'api::policy-page.policy-page': ApiPolicyPagePolicyPage;
-      'api::privacy-page.privacy-page': ApiPrivacyPagePrivacyPage;
+      'api::informacion-de-envio.informacion-de-envio': ApiInformacionDeEnvioInformacionDeEnvio;
+      'api::informacion-de-pago.informacion-de-pago': ApiInformacionDePagoInformacionDePago;
+      'api::logotipo.logotipo': ApiLogotipoLogotipo;
+      'api::pregunta-frecuente.pregunta-frecuente': ApiPreguntaFrecuentePreguntaFrecuente;
       'api::product.product': ApiProductProduct;
+      'api::termino-y-condicion.termino-y-condicion': ApiTerminoYCondicionTerminoYCondicion;
+      'api::whastapp.whastapp': ApiWhastappWhastapp;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
