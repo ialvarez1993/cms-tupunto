@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "acerca_de_nosotros",
+  "info": {
+    "singularName": "acerca-de",
+    "pluralName": "acerca-de-nosotros",
+    "displayName": "Acerca de nosotros"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
+    }
+  }
+}
