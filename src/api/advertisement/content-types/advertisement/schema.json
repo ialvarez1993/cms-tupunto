@@ -4,7 +4,8 @@
   "info": {
     "singularName": "advertisement",
     "pluralName": "advertisements",
-    "displayName": "Advertisement"
+    "displayName": "Publicidad",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
