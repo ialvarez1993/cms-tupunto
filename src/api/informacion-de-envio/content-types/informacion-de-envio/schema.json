@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "delivery_pages",
+  "collectionName": "informacion_de_envios",
   "info": {
-    "singularName": "delivery-page",
-    "pluralName": "delivery-pages",
-    "displayName": "Delivery page"
+    "singularName": "informacion-de-envio",
+    "pluralName": "informacion-de-envios",
+    "displayName": "Informacion de envios"
   },
   "options": {
     "draftAndPublish": true
@@ -15,21 +15,22 @@
     }
   },
   "attributes": {
-    "Title": {
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "Body": {
+    "content": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "richtext",
+      "type": "blocks",
       "required": true
     }
   }
