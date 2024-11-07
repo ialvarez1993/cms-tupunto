@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "privacy_pages",
+  "collectionName": "avisos_de_privacidad",
   "info": {
-    "singularName": "privacy-page",
-    "pluralName": "privacy-pages",
-    "displayName": "Privacy page"
+    "singularName": "aviso-de-privacidad",
+    "pluralName": "avisos-de-privacidad",
+    "displayName": "Aviso de privacidad"
   },
   "options": {
     "draftAndPublish": true
@@ -15,21 +15,23 @@
     }
   },
   "attributes": {
-    "Title": {
+    "title": {
+      "type": "string",
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
-    "Body": {
+    "content": {
+      "type": "blocks",
+      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "richtext"
+      }
     }
   }
 }
