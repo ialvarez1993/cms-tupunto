@@ -4,7 +4,7 @@
   "info": {
     "singularName": "cta",
     "pluralName": "ctas",
-    "displayName": "CTA",
+    "displayName": "Llamado a la accion",
     "description": ""
   },
   "options": {
