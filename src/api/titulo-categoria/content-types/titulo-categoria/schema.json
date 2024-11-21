@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "banners",
+  "kind": "singleType",
+  "collectionName": "titulo_categorias",
   "info": {
-    "singularName": "banner",
-    "pluralName": "banners",
-    "displayName": "Banner",
+    "singularName": "titulo-categoria",
+    "pluralName": "titulo-categorias",
+    "displayName": "Home Titulo Categoria",
     "description": ""
   },
   "options": {
@@ -16,10 +16,8 @@
     }
   },
   "attributes": {
-    "slide": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.slide",
+    "TituloCategoria": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true

@@ -13,9 +13,9 @@
     "subtitle": {
       "type": "string"
     },
-    "media": {
+    "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images",
@@ -25,8 +25,21 @@
     "url": {
       "type": "string"
     },
-    "call": {
+    "price": {
       "type": "string"
+    },
+    "discount": {
+      "type": "string"
+    },
+    "brand": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
