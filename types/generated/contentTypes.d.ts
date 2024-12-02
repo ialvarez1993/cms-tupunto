@@ -490,7 +490,7 @@ export interface ApiAcercaDeAcercaDe extends Struct.SingleTypeSchema {
   info: {
     singularName: 'acerca-de';
     pluralName: 'acerca-de-nosotros';
-    displayName: 'Acerca de nosotros';
+    displayName: 'Pagina De Acerca de nosotros Contenido';
     description: '';
   };
   options: {
@@ -539,12 +539,6 @@ export interface ApiAcercaDeAcercaDe extends Struct.SingleTypeSchema {
         };
       }>;
     ContactoEmail: Schema.Attribute.Email &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ContactoTelefono: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -610,6 +604,12 @@ export interface ApiAcercaDeAcercaDe extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    ContactoTelefono: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -621,35 +621,6 @@ export interface ApiAcercaDeAcercaDe extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::acerca-de.acerca-de'
-    >;
-  };
-}
-
-export interface ApiAdvertisementAdvertisement
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'advertisements';
-  info: {
-    singularName: 'advertisement';
-    pluralName: 'advertisements';
-    displayName: 'Publicidad';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    ad: Schema.Attribute.Component<'shared.cta', true>;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::advertisement.advertisement'
     >;
   };
 }
@@ -705,7 +676,7 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'banner';
     pluralName: 'banners';
-    displayName: 'Banner';
+    displayName: 'Pagina de Inicio Banner';
     description: '';
   };
   options: {
@@ -741,7 +712,7 @@ export interface ApiCambioYDevolucionCambioYDevolucion
   info: {
     singularName: 'cambio-y-devolucion';
     pluralName: 'cambios-y-devoluciones';
-    displayName: 'Cambios y devoluciones';
+    displayName: 'Pagina De Cambios y Devoluciones Contenido';
     description: '';
   };
   options: {
@@ -782,69 +753,14 @@ export interface ApiCambioYDevolucionCambioYDevolucion
   };
 }
 
-export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
-  collectionName: 'categories';
-  info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'Categoria';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    categoryID: Schema.Attribute.UID;
-    media: Schema.Attribute.Media<'images' | 'files'>;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    >;
-  };
-}
-
-export interface ApiCtaCta extends Struct.CollectionTypeSchema {
-  collectionName: 'ctas';
-  info: {
-    singularName: 'cta';
-    pluralName: 'ctas';
-    displayName: 'Llamado a la accion';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    subtitle: Schema.Attribute.String;
-    CTA: Schema.Attribute.Component<'shared.cta', true>;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::cta.cta'>;
-  };
-}
-
 export interface ApiDescuentoImperdibleDescuentoImperdible
   extends Struct.CollectionTypeSchema {
   collectionName: 'descuentos_imperdibles';
   info: {
     singularName: 'descuento-imperdible';
     pluralName: 'descuentos-imperdibles';
-    displayName: 'descuento-imperdible';
+    displayName: 'Pagina de Inicio Tarjetas De Anuncio';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -853,6 +769,7 @@ export interface ApiDescuentoImperdibleDescuentoImperdible
     subtutilos: Schema.Attribute.String;
     title: Schema.Attribute.String;
     descripcion: Schema.Attribute.Text;
+    linkSlug: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -868,12 +785,60 @@ export interface ApiDescuentoImperdibleDescuentoImperdible
   };
 }
 
+export interface ApiHomeCategoriaHomeCategoria
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'home_categorias';
+  info: {
+    singularName: 'home-categoria';
+    pluralName: 'home-categorias';
+    displayName: 'Pagina de Inicio Tarjeta Categoria';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ImageCategoriesHome: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    orden: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-categoria.home-categoria'
+    >;
+  };
+}
+
 export interface ApiHomePromoHomePromo extends Struct.SingleTypeSchema {
   collectionName: 'home_promos';
   info: {
     singularName: 'home-promo';
     pluralName: 'home-promos';
-    displayName: 'Home promos';
+    displayName: 'Pagina de Inicio Publicidad Lateral ';
     description: '';
   };
   options: {
@@ -912,6 +877,12 @@ export interface ApiHomePromoHomePromo extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    link: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -933,7 +904,7 @@ export interface ApiHomeSamsungCardHomeSamsungCard
   info: {
     singularName: 'home-samsung-card';
     pluralName: 'home-samsung-cards';
-    displayName: 'Home Samsung Card';
+    displayName: 'Pagina de Inicio llamada a la accion';
     description: '';
   };
   options: {
@@ -977,6 +948,12 @@ export interface ApiHomeSamsungCardHomeSamsungCard
           localized: true;
         };
       }>;
+    linkCardButton: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -998,7 +975,7 @@ export interface ApiHomeTarjetaDescuentoHomeTarjetaDescuento
   info: {
     singularName: 'home-tarjeta-descuento';
     pluralName: 'home-tarjetas-descuentos';
-    displayName: 'Home Tarjetas Descuento';
+    displayName: 'Pagina de Inicio Tarjetas De Publicidad';
     description: '';
   };
   options: {
@@ -1049,6 +1026,12 @@ export interface ApiHomeTarjetaDescuentoHomeTarjetaDescuento
         };
       }>;
     colorTexto: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    linkSlug: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1112,7 +1095,7 @@ export interface ApiIconoHomeIconoHome extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'icono-home';
     pluralName: 'iconos-homes';
-    displayName: 'IconosHome';
+    displayName: 'Pagina de Inicio Iconos de Caractericas TuPunto';
     description: '';
   };
   options: {
@@ -1281,30 +1264,15 @@ export interface ApiMarcaMarca extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'marca';
     pluralName: 'marcas';
-    displayName: 'marca';
+    displayName: 'Pagina de Inicio Marcas Aliadas';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    nombre: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    icono: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    nombre: Schema.Attribute.String;
+    icono: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1343,38 +1311,6 @@ export interface ApiPreguntaFrecuentePreguntaFrecuente
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pregunta-frecuente.pregunta-frecuente'
-    >;
-  };
-}
-
-export interface ApiProductProduct extends Struct.CollectionTypeSchema {
-  collectionName: 'products';
-  info: {
-    singularName: 'product';
-    pluralName: 'products';
-    displayName: 'Producto';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    sku: Schema.Attribute.UID;
-    media: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::product.product'
     >;
   };
 }
@@ -1513,7 +1449,8 @@ export interface ApiWhastappWhastapp extends Struct.SingleTypeSchema {
   info: {
     singularName: 'whastapp';
     pluralName: 'whastapps';
-    displayName: 'Whastapp';
+    displayName: 'Link De Whastapp';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1911,13 +1848,11 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::acerca-de.acerca-de': ApiAcercaDeAcercaDe;
-      'api::advertisement.advertisement': ApiAdvertisementAdvertisement;
       'api::aviso-de-privacidad.aviso-de-privacidad': ApiAvisoDePrivacidadAvisoDePrivacidad;
       'api::banner.banner': ApiBannerBanner;
       'api::cambio-y-devolucion.cambio-y-devolucion': ApiCambioYDevolucionCambioYDevolucion;
-      'api::category.category': ApiCategoryCategory;
-      'api::cta.cta': ApiCtaCta;
       'api::descuento-imperdible.descuento-imperdible': ApiDescuentoImperdibleDescuentoImperdible;
+      'api::home-categoria.home-categoria': ApiHomeCategoriaHomeCategoria;
       'api::home-promo.home-promo': ApiHomePromoHomePromo;
       'api::home-samsung-card.home-samsung-card': ApiHomeSamsungCardHomeSamsungCard;
       'api::home-tarjeta-descuento.home-tarjeta-descuento': ApiHomeTarjetaDescuentoHomeTarjetaDescuento;
@@ -1928,7 +1863,6 @@ declare module '@strapi/strapi' {
       'api::logotipo.logotipo': ApiLogotipoLogotipo;
       'api::marca.marca': ApiMarcaMarca;
       'api::pregunta-frecuente.pregunta-frecuente': ApiPreguntaFrecuentePreguntaFrecuente;
-      'api::product.product': ApiProductProduct;
       'api::termino-y-condicion.termino-y-condicion': ApiTerminoYCondicionTerminoYCondicion;
       'api::title-discount.title-discount': ApiTitleDiscountTitleDiscount;
       'api::titulo-categoria.titulo-categoria': ApiTituloCategoriaTituloCategoria;

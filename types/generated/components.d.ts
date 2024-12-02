@@ -14,7 +14,7 @@ export interface SharedSlide extends Struct.ComponentSchema {
     url: Schema.Attribute.String;
     price: Schema.Attribute.String;
     discount: Schema.Attribute.String;
-    brand: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    slug: Schema.Attribute.String;
   };
 }
 

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "acerca-de",
     "pluralName": "acerca-de-nosotros",
-    "displayName": "Acerca de nosotros",
+    "displayName": "Pagina De Acerca de nosotros Contenido",
     "description": ""
   },
   "options": {
@@ -71,14 +71,6 @@
         }
       },
       "type": "email"
-    },
-    "ContactoTelefono": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer"
     },
     "EquipoNombreNombre": {
       "pluginOptions": {
@@ -153,6 +145,14 @@
       "type": "string"
     },
     "UbicacionCodigoPostal": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "ContactoTelefono": {
       "pluginOptions": {
         "i18n": {
           "localized": true

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "descuento-imperdible",
     "pluralName": "descuentos-imperdibles",
-    "displayName": "descuento-imperdible"
+    "displayName": "Pagina de Inicio Tarjetas De Anuncio",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,9 @@
     },
     "descripcion": {
       "type": "text"
+    },
+    "linkSlug": {
+      "type": "string"
     }
   }
 }

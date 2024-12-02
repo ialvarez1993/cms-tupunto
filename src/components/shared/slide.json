@@ -31,15 +31,8 @@
     "discount": {
       "type": "string"
     },
-    "brand": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+    "slug": {
+      "type": "string"
     }
   }
 }

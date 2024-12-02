@@ -4,25 +4,17 @@
   "info": {
     "singularName": "marca",
     "pluralName": "marcas",
-    "displayName": "marca",
+    "displayName": "Pagina de Inicio Marcas Aliadas",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "nombre": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "icono": {
       "type": "media",
@@ -34,11 +26,7 @@
         "videos",
         "audios"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     }
   }
 }

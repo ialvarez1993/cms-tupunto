@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home-promo",
     "pluralName": "home-promos",
-    "displayName": "Home promos",
+    "displayName": "Pagina de Inicio Publicidad Lateral ",
     "description": ""
   },
   "options": {
@@ -55,6 +55,14 @@
           "localized": true
         }
       }
+    },
+    "link": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

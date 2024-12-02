@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home-samsung-card",
     "pluralName": "home-samsung-cards",
-    "displayName": "Home Samsung Card",
+    "displayName": "Pagina de Inicio llamada a la accion",
     "description": ""
   },
   "options": {
@@ -57,6 +57,14 @@
       }
     },
     "titleTwoColorWhite": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "linkCardButton": {
       "pluginOptions": {
         "i18n": {
           "localized": true
