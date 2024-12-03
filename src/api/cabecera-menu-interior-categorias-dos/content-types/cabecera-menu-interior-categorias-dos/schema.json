@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cabecera_menu_interior_categoria_dos",
+  "info": {
+    "singularName": "cabecera-menu-interior-categorias-dos",
+    "pluralName": "cabecera-menu-interior-categoria-dos",
+    "displayName": "Cabecera - Menu Interior Categorías Dos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titleCategory": {
+      "type": "string"
+    },
+    "listaCategorias": {
+      "type": "json"
+    }
+  }
+}

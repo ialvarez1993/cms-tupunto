@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home-titulo-popular",
     "pluralName": "home-titulo-populares",
-    "displayName": "Home Titulo Populares"
+    "displayName": "Inicio - Título de Productos Populares",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

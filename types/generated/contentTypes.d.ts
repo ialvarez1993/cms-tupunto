@@ -490,7 +490,7 @@ export interface ApiAcercaDeAcercaDe extends Struct.SingleTypeSchema {
   info: {
     singularName: 'acerca-de';
     pluralName: 'acerca-de-nosotros';
-    displayName: 'Pagina De Acerca de nosotros Contenido';
+    displayName: 'Acerca de Nosotros - Detalles';
     description: '';
   };
   options: {
@@ -676,7 +676,7 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'banner';
     pluralName: 'banners';
-    displayName: 'Pagina de Inicio Banner';
+    displayName: 'Inicio - Banners Principales';
     description: '';
   };
   options: {
@@ -706,13 +706,42 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCabeceraMenuInteriorCategoriasDosCabeceraMenuInteriorCategoriasDos
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'cabecera_menu_interior_categoria_dos';
+  info: {
+    singularName: 'cabecera-menu-interior-categorias-dos';
+    pluralName: 'cabecera-menu-interior-categoria-dos';
+    displayName: 'Cabecera - Menu Interior Categor\u00EDas Dos';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titleCategory: Schema.Attribute.String;
+    listaCategorias: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cabecera-menu-interior-categorias-dos.cabecera-menu-interior-categorias-dos'
+    >;
+  };
+}
+
 export interface ApiCambioYDevolucionCambioYDevolucion
   extends Struct.SingleTypeSchema {
   collectionName: 'cambios_y_devoluciones';
   info: {
     singularName: 'cambio-y-devolucion';
     pluralName: 'cambios-y-devoluciones';
-    displayName: 'Pagina De Cambios y Devoluciones Contenido';
+    displayName: 'Cambios y Devoluciones - Pol\u00EDticas';
     description: '';
   };
   options: {
@@ -759,7 +788,7 @@ export interface ApiDescuentoImperdibleDescuentoImperdible
   info: {
     singularName: 'descuento-imperdible';
     pluralName: 'descuentos-imperdibles';
-    displayName: 'Pagina de Inicio Tarjetas De Anuncio';
+    displayName: 'Inicio - Anuncios Promocionales ';
     description: '';
   };
   options: {
@@ -791,7 +820,7 @@ export interface ApiHomeCategoriaHomeCategoria
   info: {
     singularName: 'home-categoria';
     pluralName: 'home-categorias';
-    displayName: 'Pagina de Inicio Tarjeta Categoria';
+    displayName: 'Inicio - Categor\u00EDas Destacadas';
     description: '';
   };
   options: {
@@ -838,7 +867,7 @@ export interface ApiHomePromoHomePromo extends Struct.SingleTypeSchema {
   info: {
     singularName: 'home-promo';
     pluralName: 'home-promos';
-    displayName: 'Pagina de Inicio Publicidad Lateral ';
+    displayName: 'Inicio - Publicidad Lateral';
     description: '';
   };
   options: {
@@ -975,7 +1004,7 @@ export interface ApiHomeTarjetaDescuentoHomeTarjetaDescuento
   info: {
     singularName: 'home-tarjeta-descuento';
     pluralName: 'home-tarjetas-descuentos';
-    displayName: 'Pagina de Inicio Tarjetas De Publicidad';
+    displayName: 'Inicio - Publicidad Principal';
     description: '';
   };
   options: {
@@ -1058,7 +1087,8 @@ export interface ApiHomeTituloPopularHomeTituloPopular
   info: {
     singularName: 'home-titulo-popular';
     pluralName: 'home-titulo-populares';
-    displayName: 'Home Titulo Populares';
+    displayName: 'Inicio - T\u00EDtulo de Productos Populares';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1095,7 +1125,7 @@ export interface ApiIconoHomeIconoHome extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'icono-home';
     pluralName: 'iconos-homes';
-    displayName: 'Pagina de Inicio Iconos de Caractericas TuPunto';
+    displayName: 'Inicio - Iconos de Caracter\u00EDsticas';
     description: '';
   };
   options: {
@@ -1231,12 +1261,58 @@ export interface ApiInformacionDePagoInformacionDePago
   };
 }
 
+export interface ApiInicioMenuCategoriasDeBusquedaInicioMenuCategoriasDeBusqueda
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'inicio_menu_categorias_de_busquedas';
+  info: {
+    singularName: 'inicio-menu-categorias-de-busqueda';
+    pluralName: 'inicio-menu-categorias-de-busquedas';
+    displayName: 'Cabecera - Menu Interior Categor\u00EDas Uno ';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    titleCategory: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    listaCategorias: Schema.Attribute.JSON &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inicio-menu-categorias-de-busqueda.inicio-menu-categorias-de-busqueda'
+    >;
+  };
+}
+
 export interface ApiLogotipoLogotipo extends Struct.SingleTypeSchema {
   collectionName: 'logotipos';
   info: {
     singularName: 'logotipo';
     pluralName: 'logotipos';
-    displayName: 'Logotipo';
+    displayName: 'Logotipo Corporativo';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1264,7 +1340,7 @@ export interface ApiMarcaMarca extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'marca';
     pluralName: 'marcas';
-    displayName: 'Pagina de Inicio Marcas Aliadas';
+    displayName: 'Inicio - Marcas Asociadas';
     description: '';
   };
   options: {
@@ -1291,7 +1367,7 @@ export interface ApiPreguntaFrecuentePreguntaFrecuente
   info: {
     singularName: 'pregunta-frecuente';
     pluralName: 'preguntas-frecuentes';
-    displayName: 'Preguntas Frecuentes';
+    displayName: 'Preguntas Frecuentes (FAQs)';
     description: '';
   };
   options: {
@@ -1366,7 +1442,7 @@ export interface ApiTitleDiscountTitleDiscount extends Struct.SingleTypeSchema {
   info: {
     singularName: 'title-discount';
     pluralName: 'title-discounts';
-    displayName: 'Home Titulo Descuento';
+    displayName: 'Inicio - T\u00EDtulo de Ofertas';
     description: '';
   };
   options: {
@@ -1411,7 +1487,7 @@ export interface ApiTituloCategoriaTituloCategoria
   info: {
     singularName: 'titulo-categoria';
     pluralName: 'titulo-categorias';
-    displayName: 'Home Titulo Categoria';
+    displayName: 'Inicio - T\u00EDtulo de Categor\u00EDas';
     description: '';
   };
   options: {
@@ -1449,7 +1525,7 @@ export interface ApiWhastappWhastapp extends Struct.SingleTypeSchema {
   info: {
     singularName: 'whastapp';
     pluralName: 'whastapps';
-    displayName: 'Link De Whastapp';
+    displayName: 'WhatsApp - Enlace Directo';
     description: '';
   };
   options: {
@@ -1850,6 +1926,7 @@ declare module '@strapi/strapi' {
       'api::acerca-de.acerca-de': ApiAcercaDeAcercaDe;
       'api::aviso-de-privacidad.aviso-de-privacidad': ApiAvisoDePrivacidadAvisoDePrivacidad;
       'api::banner.banner': ApiBannerBanner;
+      'api::cabecera-menu-interior-categorias-dos.cabecera-menu-interior-categorias-dos': ApiCabeceraMenuInteriorCategoriasDosCabeceraMenuInteriorCategoriasDos;
       'api::cambio-y-devolucion.cambio-y-devolucion': ApiCambioYDevolucionCambioYDevolucion;
       'api::descuento-imperdible.descuento-imperdible': ApiDescuentoImperdibleDescuentoImperdible;
       'api::home-categoria.home-categoria': ApiHomeCategoriaHomeCategoria;
@@ -1860,6 +1937,7 @@ declare module '@strapi/strapi' {
       'api::icono-home.icono-home': ApiIconoHomeIconoHome;
       'api::informacion-de-envio.informacion-de-envio': ApiInformacionDeEnvioInformacionDeEnvio;
       'api::informacion-de-pago.informacion-de-pago': ApiInformacionDePagoInformacionDePago;
+      'api::inicio-menu-categorias-de-busqueda.inicio-menu-categorias-de-busqueda': ApiInicioMenuCategoriasDeBusquedaInicioMenuCategoriasDeBusqueda;
       'api::logotipo.logotipo': ApiLogotipoLogotipo;
       'api::marca.marca': ApiMarcaMarca;
       'api::pregunta-frecuente.pregunta-frecuente': ApiPreguntaFrecuentePreguntaFrecuente;

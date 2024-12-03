@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inicio_menu_categorias_de_busquedas",
+  "info": {
+    "singularName": "inicio-menu-categorias-de-busqueda",
+    "pluralName": "inicio-menu-categorias-de-busquedas",
+    "displayName": "Cabecera - Menu Interior Categorías Uno ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "titleCategory": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "listaCategorias": {
+      "type": "json",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

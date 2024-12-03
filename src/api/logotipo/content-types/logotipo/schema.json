@@ -4,7 +4,8 @@
   "info": {
     "singularName": "logotipo",
     "pluralName": "logotipos",
-    "displayName": "Logotipo"
+    "displayName": "Logotipo Corporativo",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,13 +13,13 @@
   "pluginOptions": {},
   "attributes": {
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     }
   }
 }
